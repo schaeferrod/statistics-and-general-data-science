@@ -11,5 +11,25 @@ else:
 
 n = len(tensao) or len(corrente) #número de componentes
 
+soma_corrente = 0
+for i in corrente: #Faz o somatório das correntes da lista corrente
+    soma_corrente = i + soma_corrente
+
+soma_tensao = 0
+for v in tensao: #Faz o somatório das tensões da lista tensao
+    soma_tensao = v + soma_tensao
+
+soma_corrente_quadrado = soma_corrente**2 #Faz a potenciação
+#ao quadrado do somatório das correntes
+
+soma_corrente_quadratico = 0
+for i in corrente:#somatório do quadrado das correntes
+    soma_corrente_quadratico = i**2 + soma_corrente
+
+for c in corrente:
+    for t in tensao:
+        xy = corrente*tensao
+        print(xy)
+
 
 
