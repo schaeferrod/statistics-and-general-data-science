@@ -1,5 +1,5 @@
 tensao = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
-corrente = [0, 2.35*10**-3, 5.8*10**-3, 7.2*10**-3, 11.4*10**-3, 13.2*10**-3, 16.2*10**-3, 17.9*10**-3, 22*10**-3, 23.5*10**-3, 25.5*10**-3]
+corrente = [0, 2.35, 5.8, 7.2, 11.4, 13.2, 16.2, 17.9, 22, 23.5, 25.5]
 
 tamanho_listas = len(tensao) == len(corrente)
 print(f"Tamanho da lista de tensão e corrente é igual?")
@@ -26,10 +26,26 @@ soma_corrente_quadratico = 0
 for i in corrente:#somatório do quadrado das correntes
     soma_corrente_quadratico = i**2 + soma_corrente
 
+indice = 0
+lista_corrente_tensao = []
 for c in corrente:
-    for t in tensao:
-        xy = corrente*tensao
-        print(xy)
+    produto_corrente_tensao = corrente[indice]*tensao[indice]
+    lista_corrente_tensao.append(produto_corrente_tensao) #add o produto a lista criada
+
+    
+    indice = indice + 1
+print(lista_corrente_tensao)
+
+somatorio_produto_corrente_tensao = 0
+for p in lista_corrente_tensao:
+    somatorio_produto_corrente_tensao =  p + somatorio_produto_corrente_tensao
+print(somatorio_produto_corrente_tensao)
+
+#Cálculo de B
+
+B = ((n*somatorio_produto_corrente_tensao)-(soma_corrente*soma_tensao))/(n*soma_corrente_quadratico-soma_corrente_quadrado)
+
+print(B)
 
 
 
